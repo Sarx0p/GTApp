@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GolTime")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88f7112ca6eb868126e709dc1635b45141ffe461")]
 [assembly: System.Reflection.AssemblyProductAttribute("GolTime")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GolTime")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
