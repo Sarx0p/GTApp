@@ -1,7 +1,16 @@
+using GolTime.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<GoltimeContext>(o =>
+{
+    o.UseNpgsql(builder.Configuration.GetConnectionString("goltime"));
+});
 
 var app = builder.Build();
 
