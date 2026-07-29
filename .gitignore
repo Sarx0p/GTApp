@@ -1,4 +1,5 @@
 GolTime/appsettings.json
+GolTime/Migrations
 .vs/
 **/bin/
 **/obj/
