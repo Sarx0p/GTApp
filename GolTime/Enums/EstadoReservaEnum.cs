@@ -1,6 +1,9 @@
 ﻿namespace GolTime.Enums
 {
-    public class EstadoReservaEnum
+    public enum EstadoReservaEnum
     {
+        Activa,
+        Cancelada,
+        Finalizada
     }
 }
