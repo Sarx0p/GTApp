@@ -1,0 +1,76 @@
+﻿<div class="d-flex flex-column text-white p-4"
+     style="background:#020617; width:300px; min-height:100vh;">
+
+
+    <div class="text-center mb-5">
+
+        <img src="~/images/logo.png"
+             class="img-fluid mb-3"
+             style="max-width:180px;">
+
+        <h4 class="text-light mb-0">
+            Gestión de Canchas
+        </h4>
+
+    </div>
+
+
+    <div class="d-grid gap-3">
+
+        <a asp-controller="Reservacion"
+           asp-action="Index"
+           class="btn rounded-pill text-start text-white fw-semibold py-3"
+           style="background:#6D28D9;">
+            Reservaciones
+        </a>
+
+        <a asp-controller="User"
+           asp-action="Index"
+           class="btn rounded-pill text-start text-white fw-semibold py-3">
+            Usuarios
+        </a>
+
+        <a asp-controller="Reporte"
+           asp-action="Index"
+           class="btn rounded-pill text-start text-white fw-semibold py-3">
+            Reportes
+        </a>
+
+    </div>
+
+  
+    <div class="mt-auto">
+
+        <div class="border rounded-4 p-3 mb-4">
+
+            <div class="d-flex align-items-center">
+
+                <div class="rounded-circle d-flex justify-content-center align-items-center text-white fw-bold me-3"
+                     style="width:55px;height:55px;background:#6D28D9;">
+                    Z
+                </div>
+
+                <div>
+
+                    <h4 class="mb-0">Zarck</h4>
+
+                    <small class="text-light">
+                        Administrador
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <a asp-controller="Acceso"
+           asp-action="Login"
+           class="btn w-100 rounded-pill text-white fw-bold py-3"
+           style="background:#6D28D9;">
+            Cerrar sesión
+        </a>
+
+    </div>
+
+</div>
