@@ -1,6 +1,13 @@
 ﻿<div class="d-flex flex-column text-white p-4"
-     style="background:#020617; width:300px; min-height:100vh;">
-
+     style="
+    background:#020617;
+    width:300px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    ">
 
     <div class="text-center mb-5">
 
@@ -14,13 +21,11 @@
 
     </div>
 
-
     <div class="d-grid gap-3">
 
         <a asp-controller="Reservacion"
            asp-action="Index"
-           class="btn rounded-pill text-start text-white fw-semibold py-3"
-           style="background:#6D28D9;">
+           class="btn rounded-pill text-start text-white fw-semibold py-3">
             Reservaciones
         </a>
 
@@ -38,7 +43,6 @@
 
     </div>
 
-  
     <div class="mt-auto">
 
         <div class="border rounded-4 p-3 mb-4">
