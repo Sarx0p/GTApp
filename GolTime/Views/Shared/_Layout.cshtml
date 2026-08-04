@@ -10,23 +10,25 @@
     <link rel="stylesheet" href="~/GolTime.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body style="background:#020617; overflow:hidden;">
 
     <div class="d-flex">
 
-        <partial name="_Sidebar" />
+        
+        @Html.Partial("_Sidebar")
 
-        <main class="flex-grow-1 p-4">
+        <main class="flex-grow-1 p-5 text-white"
+              style="
+            margin-left:300px;
+            height:100vh;
+            overflow-y:auto;
+            background:#020617;">
+
             @RenderBody()
+
         </main>
 
     </div>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>
