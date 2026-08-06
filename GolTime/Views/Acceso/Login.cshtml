@@ -236,23 +236,38 @@
 
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger mb-3">
+                            @ViewBag.Error
+                        </div>
+                    }
+
                     <div class="mb-3">
-                        <label asp-for="Login" class="form-label">Usuario</label>
-                        <input asp-for="Login" class="form-control" placeholder="Ingresa tu usuario" autocomplete="username" />
+                        <label asp-for="Login" class="form-label">Correo</label>
+                        <input asp-for="Login"
+                               class="form-control"
+                               placeholder="Ingresa tu correo"
+                               autocomplete="username" />
                         <span asp-validation-for="Login" class="text-danger small"></span>
                     </div>
 
                     <div class="mb-2">
-                        <label asp-for="Password" class="form-label">Contrasena</label>
-                        <input asp-for="Password" type="password" class="form-control" placeholder="Ingresa tu contrasena" autocomplete="current-password" />
+                        <label asp-for="Password" class="form-label">Contraseña</label>
+                        <input asp-for="Password"
+                               type="password"
+                               class="form-control"
+                               placeholder="Ingresa tu contraseña"
+                               autocomplete="current-password" />
                         <span asp-validation-for="Password" class="text-danger small"></span>
                     </div>
 
                     <br>
 
-                    <button type="submit" class="login-button">Ingresar</button>
+                    <button type="submit" class="login-button">
+                        Ingresar
+                    </button>
 
-                    
                 </form>
             </div>
         </section>
