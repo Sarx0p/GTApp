@@ -1,1 +1,87 @@
-﻿<h1>hoLAA</h1>
+﻿@model IEnumerable<GolTime.Models.Reservacion>
+@using GolTime.Enums
+@{
+    ViewData["Title"] = "Reservaciones";
+}
+
+<div class="content-panel">
+
+    <div class="panel-header">
+        <div>
+            <h1 class="panel-title">Reservaciones</h1>
+            <p class="panel-subtitle">Administra y consulta todas las reservaciones de la cancha.</p>
+        </div>
+        <a asp-controller="Reservacion" asp-action="Crear" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" /></svg>
+            Nueva reserva
+        </a>
+    </div>
+
+    <div class="filter-bar">
+        <span class="filter-label">Filtrar por estado:</span>
+        <button type="button" class="pill active">Todas</button>
+        <button type="button" class="pill dot" style="color:var(--green)">Activas</button>
+        <button type="button" class="pill dot" style="color:var(--blue)">Finalizadas</button>
+        <button type="button" class="pill dot" style="color:var(--red)">Canceladas</button>
+    </div>
+
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Pago</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="7" style="text-align:center; color:var(--text-muted); padding:26px;">
+                            No hay reservaciones registradas todavía.
+                        </td>
+                    </tr>
+                }
+                @foreach (var r in Model)
+                {
+                    var badgeEstado = r.EstadoReserva switch
+                    {
+                        EstadoReservaEnum.Activa => "badge-activa",
+                        EstadoReservaEnum.Finalizada => "badge-finalizada",
+                        EstadoReservaEnum.Cancelada => "badge-cancelada",
+                        _ => "badge-pendiente"
+                    };
+                    var badgePago = r.EstadoPago == EstadoPagoEnum.Pagado ? "badge-pagado" : "badge-pendiente";
+
+                    <tr>
+                        <td class="cell-strong">@r.HoraInicio.ToString("HH:mm") - @r.HoraFin.ToString("HH:mm")</td>
+                        <td>@(r.Client?.Nombre ?? "—")</td>
+                        <td>@r.Fecha.ToString("dd MMM yyyy")</td>
+                        <td><span class="badge @badgeEstado">@r.EstadoReserva</span></td>
+                        <td><span class="badge @badgePago">@r.EstadoPago</span></td>
+                        <td>@(r.Client?.Numero ?? "—")</td>
+                        <td>
+                            <div class="row-actions">
+                                <a class="btn-icon edit" asp-controller="Reservacion" asp-action="Editar" asp-route-id="@r.Id" title="Editar">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" /></svg>
+                                </a>
+                                <a class="btn-icon delete" asp-controller="Reservacion" asp-action="Eliminar" asp-route-id="@r.Id" title="Eliminar">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6h16Z" /></svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-footer">
+        <span>Mostrando @Model.Count() reservacion(es)</span>
+    </div>
+</div>
