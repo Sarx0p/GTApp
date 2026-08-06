@@ -5,7 +5,6 @@
 <div class="container-fluid py-4 text-white"
      style="background:#020617; min-height:100vh;">
 
-  
     <div class="mb-4">
 
         <h2 class="fw-bold">
@@ -14,7 +13,7 @@
             Reportes
         </h2>
 
-        <p class="text-secondary mb-0" style="color:white">
+        <p class="text-secondary mb-0">
             Genera un reporte de las reservaciones en un rango de fechas.
         </p>
 
@@ -22,18 +21,16 @@
 
     <hr class="border-secondary opacity-25">
 
-    
-    <div class="card border border-secondary rounded-4 shadow-lg mt-4"
-         style="background:#111827;">
+    <form asp-controller="Reporte"
+          asp-action="GenerarReporte"
+          method="get">
 
-        <div class="card-body p-5">
+        <div class="card border border-secondary rounded-4 shadow-lg mt-4"
+             style="background:#111827;">
 
-         
-            <div class="d-flex align-items-center mb-4">
+            <div class="card-body p-5">
 
-                
-
-                <div>
+                <div class="mb-4">
 
                     <h4 class="fw-bold text-white mb-1">
                         Exportar reservaciones
@@ -45,55 +42,60 @@
 
                 </div>
 
-            </div>
+                <hr class="border-secondary opacity-25">
 
-            <hr class="border-secondary opacity-25">
+                <div class="row mt-4">
 
-            <div class="row mt-4">
+                    <div class="col-md-6">
 
-                <div class="col-md-6">
+                        <label class="form-label fw-semibold text-white">
+                            <i class="bi bi-calendar-event me-2"
+                               style="color:#6D28D9;"></i>
+                            Fecha inicio
+                        </label>
 
-                    <label class="form-label fw-semibold text-white">
-                        <i class="bi bi-calendar-event me-2"
-                           style="color:#6D28D9;"></i>
-                        Fecha inicio
-                    </label>
+                        <input type="date"
+                               name="fechaInicio"
+                               class="form-control bg-dark text-white border-secondary py-3"
+                               required />
 
-                    <input type="date"
-                           class="form-control bg-dark text-white border-secondary py-3">
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label fw-semibold text-white">
+                            <i class="bi bi-calendar-check me-2"
+                               style="color:#6D28D9;"></i>
+                            Fecha fin
+                        </label>
+
+                        <input type="date"
+                               name="fechaFin"
+                               class="form-control bg-dark text-white border-secondary py-3"
+                               required />
+
+                    </div>
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="d-flex justify-content-end mt-5">
 
-                    <label class="form-label fw-semibold text-white">
-                        <i class="bi bi-calendar-check me-2"
-                           style="color:#6D28D9;"></i>
-                        Fecha fin
-                    </label>
+                    <button type="submit"
+                            class="btn text-white fw-semibold px-5 py-3 rounded-3"
+                            style="background:#6D28D9;">
 
-                    <input type="date"
-                           class="form-control bg-dark text-white border-secondary py-3">
+                        <i class="bi bi-download me-2"></i>
+
+                        Generar PDF
+
+                    </button>
 
                 </div>
-
-            </div>
-
-            <div class="d-flex justify-content-end mt-5">
-
-                <button class="btn text-white fw-semibold px-5 py-3 rounded-3"
-                        style="background:#6D28D9;">
-
-                    <i class="bi bi-download me-2"></i>
-
-                    Generar PDF
-
-                </button>
 
             </div>
 
         </div>
 
-    </div>
+    </form>
 
 </div>
