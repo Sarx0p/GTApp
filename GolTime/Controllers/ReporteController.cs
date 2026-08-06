@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GolTime.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class ReporteController : Controller
     {
 
