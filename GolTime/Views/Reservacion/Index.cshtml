@@ -2,6 +2,8 @@
 @using GolTime.Enums
 @{
     ViewData["Title"] = "Reservaciones";
+    string estadoActual = ViewBag.EstadoActual;
+    string pagoActual = ViewBag.PagoActual;
 }
 
 <div class="content-panel">
@@ -17,14 +19,24 @@
         </a>
     </div>
 
+    <!-- ============ Filtro por estado de la reserva ============ -->
     <div class="filter-bar">
-        <span class="filter-label">Filtrar por estado:</span>
-        <button type="button" class="pill active">Todas</button>
-        <button type="button" class="pill dot" style="color:var(--green)">Activas</button>
-        <button type="button" class="pill dot" style="color:var(--blue)">Finalizadas</button>
-        <button type="button" class="pill dot" style="color:var(--red)">Canceladas</button>
+        <span class="filter-label">Estado:</span>
+        <a asp-action="Index" asp-route-pago="@pagoActual" class="pill @(string.IsNullOrEmpty(estadoActual) ? "active" : "")">Todas</a>
+        <a asp-action="Index" asp-route-estado="Activa" asp-route-pago="@pagoActual" class="pill dot @(estadoActual == "Activa" ? "active" : "")" style="color:var(--green)">Activas</a>
+        <a asp-action="Index" asp-route-estado="Finalizada" asp-route-pago="@pagoActual" class="pill dot @(estadoActual == "Finalizada" ? "active" : "")" style="color:var(--blue)">Finalizadas</a>
+        <a asp-action="Index" asp-route-estado="Cancelada" asp-route-pago="@pagoActual" class="pill dot @(estadoActual == "Cancelada" ? "active" : "")" style="color:var(--red)">Canceladas</a>
     </div>
 
+    <!-- ============ Filtro por estado de pago ============ -->
+    <div class="filter-bar">
+        <span class="filter-label">Pago:</span>
+        <a asp-action="Index" asp-route-estado="@estadoActual" class="pill @(string.IsNullOrEmpty(pagoActual) ? "active" : "")">Todos</a>
+        <a asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="Pendiente" class="pill dot @(pagoActual == "Pendiente" ? "active" : "")" style="color:var(--amber)">Pendiente</a>
+        <a asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="Pagado" class="pill dot @(pagoActual == "Pagado" ? "active" : "")" style="color:var(--green)">Pagado</a>
+    </div>
+
+    <!-- ============ Tabla ============ -->
     <div class="table-wrap">
         <table class="data-table">
             <thead>
@@ -43,7 +55,7 @@
                 {
                     <tr>
                         <td colspan="7" style="text-align:center; color:var(--text-muted); padding:26px;">
-                            No hay reservaciones registradas todavía.
+                            No hay reservaciones que coincidan con este filtro.
                         </td>
                     </tr>
                 }

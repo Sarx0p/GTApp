@@ -984,3 +984,61 @@ table.data-table {
         border-radius: 14px;
     }
 }
+}
+.client-combo {
+    position: relative;
+}
+
+.client-combo-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 50;
+    display: none;
+    box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
+
+    .client-combo-list.open {
+        display: block;
+    }
+
+.client-combo-item {
+    padding: 10px 13px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .client-combo-item:hover {
+        background: #1a1a2e;
+    }
+
+.client-combo-empty {
+    padding: 10px 13px;
+    font-size: 13.5px;
+    color: var(--text-faint);
+}
+
+.btn-link-inline {
+    background: transparent;
+    border: none;
+    color: var(--purple-400);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .btn-link-inline:hover {
+        color: var(--purple-500);
+        text-decoration: underline;
+    }
+ 
