@@ -64,7 +64,7 @@ namespace GolTime.Controllers
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         new ClaimsPrincipal(claimsIdentity));
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Reservacion");
                 }
                 else
                 {
