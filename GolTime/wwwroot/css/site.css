@@ -986,22 +986,30 @@ table.data-table {
 }
 }
 .client-combo {
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 6px;
+    background: #161625;
+    border: 1px solid #2d2d45;
+    border-radius: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.45);
 }
 
 .client-combo-list {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    right: 0;
-    background: var(--bg-panel);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-sm);
-    max-height: 220px;
-    overflow-y: auto;
-    z-index: 50;
-    display: none;
-    box-shadow: 0 12px 30px rgba(0,0,0,.4);
+    position: fixed;
+    top: 250px;
+    left: 600px;
+    width: 350px;
+    display: block !important;
+    background: red;
+    color: white;
+    z-index: 999999;
 }
 
     .client-combo-list.open {
@@ -1009,13 +1017,15 @@ table.data-table {
     }
 
 .client-combo-item {
-    padding: 10px 13px;
+    padding: 12px 14px;
+    color: #E5E7EB;
     cursor: pointer;
-    font-size: 14px;
+    transition: .15s;
 }
 
     .client-combo-item:hover {
-        background: #1a1a2e;
+        background: #7C3AED;
+        color: white;
     }
 
 .client-combo-empty {

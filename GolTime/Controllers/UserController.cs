@@ -1,4 +1,5 @@
 using GolTime.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace GolTime.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class UserController : Controller
     {
         private readonly GoltimeContext _context;
