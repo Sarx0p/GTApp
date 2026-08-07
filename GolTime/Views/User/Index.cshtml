@@ -1,5 +1,505 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<GolTime.Models.User>
+
 @{
+    ViewData["Title"] = "Usuarios";
+    var roles = ViewBag.Roles as List<GolTime.Models.Rol> ?? new List<GolTime.Models.Rol>();
+    int? rolSeleccionado = ViewBag.RolSeleccionado as int?;
+    string estadoSeleccionado = ViewBag.EstadoSeleccionado as string ?? "";
+    string busqueda = ViewBag.Busqueda as string ?? "";
 }
+
+<style>
+    .users-panel {
+    max-width: 1120px;
+    min-height: auto;
+    padding: 24px 26px 26px;
+}
+
+.users-panel .panel-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+}
+
+.users-panel .panel-title {
+    font-size: 24px;
+}
+
+.users-panel .btn {
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
+.users-panel .filter-bar {
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.users-panel .data-table thead th {
+    padding: 9px 12px;
+}
+
+.users-panel .data-table tbody td {
+    padding: 13px 12px;
+}
+
+.users-panel .btn-icon {
+    width: 34px;
+    height: 34px;
+}
+
+.users-panel .table-footer {
+    padding-top: 15px;
+}
+    .users-toolbar {
+        display: grid;
+        grid-template-columns: minmax(220px, 1.2fr) minmax(170px, .8fr) minmax(170px, .8fr) auto;
+gap: 10px;
+        width: 100%;
+    }
+
+    .users-toolbar .input-wrap {
+        min-height: 42px;
+padding: 9px 12px;
+    }
+
+    .users-toolbar input,
+    .users-toolbar select {
+        min-width: 0;
+    }
+
+    .status-dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-weight: 600;
+    }
+
+    .status-dot::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+
+    .status-dot.active {
+        color: var(--green);
+    }
+
+    .status-dot.inactive {
+        color: var(--text-faint);
+    }
+
+    .role-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 12px;
+        border-radius: var(--radius-pill);
+        color: var(--purple-400);
+        background: rgba(109, 40, 217, .18);
+        font-size: 12.5px;
+        font-weight: 600;
+    }
+
+    .alert-soft {
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+        margin-bottom: 18px;
+        font-size: 14px;
+    }
+
+    .alert-soft.success {
+        color: var(--green);
+        background: rgba(34, 197, 94, .08);
+    }
+
+    .alert-soft.error {
+        color: var(--red);
+        background: rgba(239, 68, 68, .08);
+    }
+
+    .modal-overlay:target {
+        display: flex;
+    }
+
+    .field-validation {
+        color: var(--red);
+        font-size: 12.5px;
+    }
+
+    @@media (max-width: 1050px) {
+        .users-toolbar {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @@media (max-width: 720px) {
+        .users-toolbar {
+            grid-template-columns: 1fr;
+        }
+
+        .users-toolbar .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .panel-header {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<div class="content-panel users-panel">
+
+    <div class="panel-header">
+        <div>
+            <h1 class="panel-title">Usuarios</h1>
+            <p class="panel-subtitle">Gestiona los empleados y administradores del sistema.</p>
+        </div>
+
+        <a href="#nuevoUsuario" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14" /></svg>
+            Nuevo usuario
+        </a>
+    </div>
+
+    @if (TempData["Exito"] != null)
+    {
+        <div class="alert-soft success">@TempData["Exito"]</div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert-soft error">@TempData["Error"]</div>
+    }
+
+    <form asp-controller="User" asp-action="Index" method="get" class="filter-bar">
+        <div class="users-toolbar">
+            <div class="input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                <input type="search" name="busqueda" value="@busqueda" placeholder="Buscar por nombre o correo" />
+            </div>
+
+            <div class="input-wrap">
+                <select name="rolId">
+                    <option value="">Todos los roles</option>
+                    @foreach (var rol in roles)
+                    {
+                        if (rolSeleccionado == rol.Id)
+                        {
+                            <option value="@rol.Id" selected>@rol.Nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@rol.Id">@rol.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="input-wrap">
+                <select name="estado">
+                    @if (string.IsNullOrWhiteSpace(estadoSeleccionado))
+                    {
+                        <option value="" selected>Todos los estados</option>
+                    }
+                    else
+                    {
+                        <option value="">Todos los estados</option>
+                    }
+
+                    @if (estadoSeleccionado == "activo")
+                    {
+                        <option value="activo" selected>Activos</option>
+                    }
+                    else
+                    {
+                        <option value="activo">Activos</option>
+                    }
+
+                    @if (estadoSeleccionado == "inactivo")
+                    {
+                        <option value="inactivo" selected>Inactivos</option>
+                    }
+                    else
+                    {
+                        <option value="inactivo">Inactivos</option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-ghost">Filtrar</button>
+        </div>
+    </form>
+
+    <div class="table-wrap">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Creado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="6" style="text-align:center; color:var(--text-muted); padding:26px;">
+                            No hay usuarios registrados con esos filtros.
+                        </td>
+                    </tr>
+                }
+
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td class="cell-strong">@usuario.Nombre</td>
+                        <td>@usuario.Correo</td>
+                        <td><span class="role-chip">@(usuario.Rol?.Nombre ?? "Sin rol")</span></td>
+                        <td>
+                            @if (usuario.Estado)
+                            {
+                                <span class="status-dot active">Activo</span>
+                            }
+                            else
+                            {
+                                <span class="status-dot inactive">Inactivo</span>
+                            }
+                        </td>
+                        <td>@usuario.CreatedAt.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <div class="row-actions">
+                                <a class="btn-icon edit" href="#editar-@usuario.Id" title="Editar usuario">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" /></svg>
+                                </a>
+                                <a class="btn-icon delete" href="#eliminar-@usuario.Id" title="Eliminar usuario">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6h16Z" /></svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-footer">
+        <span>Mostrando @Model.Count() usuario(s)</span>
+    </div>
+</div>
+
+<div id="nuevoUsuario" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-head">
+            <div class="modal-head-left">
+                <div class="modal-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M19 8v6M16 11h6" /></svg>
+                </div>
+                <div>
+                    <h2 class="modal-title">Nuevo usuario</h2>
+                    <p class="modal-subtitle">Registra un empleado o administrador.</p>
+                </div>
+            </div>
+            <a href="#" class="modal-close">Ã—</a>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <form asp-controller="User" asp-action="Crear" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="form-grid">
+                <div class="form-field">
+                    <label>Nombre<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input type="text" name="nombre" maxlength="80" required placeholder="Nombre completo" />
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Correo<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input type="email" name="correo" maxlength="100" required placeholder="correo@goltime.com" />
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Clave<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input type="password" name="clave" required placeholder="Contraseña" />
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Rol<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <select name="rolId" required>
+                            <option value="">Selecciona un rol</option>
+                            @foreach (var rol in roles)
+                            {
+                                <option value="@rol.Id">@rol.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Estado</label>
+                    <div class="input-wrap">
+                        <select name="estado">
+                            <option value="true" selected>Activo</option>
+                            <option value="false">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="#" class="btn btn-ghost">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar usuario</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@foreach (var usuario in Model)
+{
+    <div id="editar-@usuario.Id" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-head">
+                <div class="modal-head-left">
+                    <div class="modal-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" /></svg>
+                    </div>
+                    <div>
+                        <h2 class="modal-title">Editar usuario</h2>
+                        <p class="modal-subtitle">Actualiza la informacion de @usuario.Nombre.</p>
+                    </div>
+                </div>
+                <a href="#" class="modal-close">Ã—</a>
+            </div>
+
+            <div class="modal-divider"></div>
+
+            <form asp-controller="User" asp-action="Editar" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@usuario.Id" />
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>Nombre<span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <input type="text" name="nombre" maxlength="80" required value="@usuario.Nombre" />
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Correo<span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <input type="email" name="correo" maxlength="100" required value="@usuario.Correo" />
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Nueva clave</label>
+                        <div class="input-wrap">
+                            <input type="password" name="clave" placeholder="Dejar vacio para mantener" />
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Rol<span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <select name="rolId" required>
+                                @foreach (var rol in roles)
+                                {
+                                    if (usuario.RolId == rol.Id)
+                                    {
+                                        <option value="@rol.Id" selected>@rol.Nombre</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@rol.Id">@rol.Nombre</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field full">
+                        <label>Estado</label>
+                        <div class="input-wrap">
+                            <select name="estado">
+                                @if (usuario.Estado)
+                                {
+                                    <option value="true" selected>Activo</option>
+                                    <option value="false">Inactivo</option>
+                                }
+                                else
+                                {
+                                    <option value="true">Activo</option>
+                                    <option value="false" selected>Inactivo</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-ghost">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="eliminar-@usuario.Id" class="modal-overlay">
+        <div class="modal-box modal-sm">
+            <div class="modal-head">
+                <div class="modal-head-left">
+                    <div class="modal-icon danger">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01" /><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" /></svg>
+                    </div>
+                    <div>
+                        <h2 class="modal-title">Eliminar usuario</h2>
+                        <p class="modal-subtitle">Esta accion no se puede deshacer si el usuario no tiene reservaciones.</p>
+                    </div>
+                </div>
+                <a href="#" class="modal-close">Ã—</a>
+            </div>
+
+            <div class="modal-divider"></div>
+
+            <div class="detail-list">
+                <div class="detail-row">
+                    <span class="detail-key">Nombre</span>
+                    <span class="detail-value">@usuario.Nombre</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">Correo</span>
+                    <span class="detail-value">@usuario.Correo</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-key">Rol</span>
+                    <span class="detail-value">@(usuario.Rol?.Nombre ?? "Sin rol")</span>
+                </div>
+            </div>
+
+            <form asp-controller="User" asp-action="Eliminar" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@usuario.Id" />
+
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-ghost">Cancelar</a>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
