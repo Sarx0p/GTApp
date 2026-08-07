@@ -1,6 +1,4 @@
-﻿/* ============================================
-   GolTime - Interacciones de UI
-   ============================================ */
+﻿let clienteSeleccionado = false;
 
 window.GolTime = (function () {
 
@@ -18,7 +16,6 @@ window.GolTime = (function () {
         document.body.style.overflow = '';
     }
 
-    // Cerrar al hacer click fuera del cuadro del modal
     document.addEventListener('click', function (e) {
         if (e.target.classList && e.target.classList.contains('modal-overlay')) {
             e.target.classList.remove('open');
@@ -26,7 +23,6 @@ window.GolTime = (function () {
         }
     });
 
-    // Cerrar con la tecla Escape
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             document.querySelectorAll('.modal-overlay.open').forEach(function (overlay) {
@@ -36,7 +32,6 @@ window.GolTime = (function () {
         }
     });
 
-    // Filtros de estado (solo visual por ahora, sin conectar a datos)
     document.addEventListener('click', function (e) {
         const pill = e.target.closest('.filter-bar .pill');
         if (!pill) return;
@@ -44,7 +39,6 @@ window.GolTime = (function () {
         pill.classList.add('active');
     });
 
-    // Rellenar el modal Editar con los datos de la fila que se clickeó
     document.addEventListener('click', function (e) {
         const editBtn = e.target.closest('.btn-icon.edit');
         if (!editBtn) return;
@@ -62,7 +56,6 @@ window.GolTime = (function () {
         openModal('modalEditar');
     });
 
-    // Rellenar el modal Eliminar con los datos de la fila que se clickeó
     document.addEventListener('click', function (e) {
         const delBtn = e.target.closest('.btn-icon.delete');
         if (!delBtn) return;
@@ -103,13 +96,13 @@ window.GolTime = (function () {
     }
 
     return { openModal, closeModal };
+
 })();
 
-/* ============================================
-   Buscador de cliente con opción "Nuevo cliente"
-   (solo corre si la página trae #clienteCombo)
-   ============================================ */
+
+
 function initClienteCombo() {
+
     const combo = document.getElementById('clienteCombo');
     if (!combo) return;
 
@@ -127,6 +120,7 @@ function initClienteCombo() {
 
     function render(items) {
         list.innerHTML = '';
+
         if (items.length === 0) {
             const empty = document.createElement('div');
             empty.className = 'client-combo-empty';
@@ -137,19 +131,25 @@ function initClienteCombo() {
                 const item = document.createElement('div');
                 item.className = 'client-combo-item';
                 item.textContent = c.nombre + ' — ' + c.numero;
+
                 item.addEventListener('click', function () {
                     hidden.value = c.id;
                     search.value = c.nombre + ' — ' + c.numero;
+
+                    list.innerHTML = '';
                     list.classList.remove('open');
+
                     ocultarErrorCliente();
+                    search.blur();
                 });
+
                 list.appendChild(item);
             });
         }
+
         list.classList.add('open');
     }
 
-    // Consulta real a la base de datos (BuscarClientesAjax) en cada búsqueda
     function buscarEnBD(term) {
         fetch(searchUrl + '?term=' + encodeURIComponent(term))
             .then(function (r) {
@@ -170,16 +170,36 @@ function initClienteCombo() {
     }
 
     search.addEventListener('input', function () {
+
+        if (clienteSeleccionado) {
+            clienteSeleccionado = false;
+            hidden.value = '';
+            list.innerHTML = '';
+            list.classList.remove('open');
+            return;
+        }
+
         hidden.value = '';
+
+        const term = search.value.trim();
+
+        if (term.length < 2) {
+            list.innerHTML = '';
+            list.classList.remove('open');
+            return;
+        }
+
         clearTimeout(debounceTimer);
-        const term = search.value;
+
         debounceTimer = setTimeout(function () {
             buscarEnBD(term);
         }, 250);
     });
 
     search.addEventListener('focus', function () {
-        buscarEnBD(search.value);
+        if (search.value.trim().length >= 2) {
+            buscarEnBD(search.value.trim());
+        }
     });
 
     document.addEventListener('click', function (e) {
@@ -188,18 +208,19 @@ function initClienteCombo() {
         }
     });
 
-    // Botón "+ Nuevo cliente"
     const btnNuevo = document.getElementById('btnNuevoCliente');
+
     if (btnNuevo) {
         btnNuevo.addEventListener('click', function () {
             GolTime.openModal('modalNuevoCliente');
         });
     }
 
-    // Guardar el cliente nuevo por AJAX y seleccionarlo automáticamente
     const formNuevoCliente = document.getElementById('formNuevoCliente');
+
     if (formNuevoCliente) {
         formNuevoCliente.addEventListener('submit', function (e) {
+
             e.preventDefault();
 
             const formData = new FormData(formNuevoCliente);
@@ -208,12 +229,16 @@ function initClienteCombo() {
                 method: 'POST',
                 body: formData
             })
-                .then(function (r) { return r.json(); })
+                .then(function (r) {
+                    return r.json();
+                })
                 .then(function (nuevo) {
+
                     if (!nuevo || !nuevo.id) return;
 
                     hidden.value = nuevo.id;
                     search.value = nuevo.nombre + ' — ' + nuevo.numero;
+
                     ocultarErrorCliente();
 
                     formNuevoCliente.reset();
