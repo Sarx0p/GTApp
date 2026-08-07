@@ -1,4 +1,4 @@
-@model IEnumerable<GolTime.Models.User>
+﻿@model IEnumerable<GolTime.Models.User>
 
 @{
     ViewData["Title"] = "Usuarios";
@@ -137,6 +137,11 @@ padding: 9px 12px;
     @@media (max-width: 720px) {
         .users-toolbar {
             grid-template-columns: 1fr;
+        }
+
+        .users-toolbar .btn {
+            width: 100%;
+            justify-content: center;
         }
 
         .panel-header {
@@ -300,7 +305,7 @@ padding: 9px 12px;
                     <p class="modal-subtitle">Registra un empleado o administrador.</p>
                 </div>
             </div>
-            <a href="#" class="modal-close">×</a>
+            <a href="#" class="modal-close">Ã—</a>
         </div>
 
         <div class="modal-divider"></div>
@@ -326,7 +331,7 @@ padding: 9px 12px;
                 <div class="form-field">
                     <label>Clave<span class="req">*</span></label>
                     <div class="input-wrap">
-                        <input type="password" name="clave" required placeholder="Contraseña" />
+                        <input type="password" name="clave" required placeholder="ContraseÃ±a" />
                     </div>
                 </div>
 
@@ -376,7 +381,7 @@ padding: 9px 12px;
                         <p class="modal-subtitle">Actualiza la informacion de @usuario.Nombre.</p>
                     </div>
                 </div>
-                <a href="#" class="modal-close">×</a>
+                <a href="#" class="modal-close">Ã—</a>
             </div>
 
             <div class="modal-divider"></div>
@@ -465,7 +470,7 @@ padding: 9px 12px;
                         <p class="modal-subtitle">Esta accion no se puede deshacer si el usuario no tiene reservaciones.</p>
                     </div>
                 </div>
-                <a href="#" class="modal-close">×</a>
+                <a href="#" class="modal-close">Ã—</a>
             </div>
 
             <div class="modal-divider"></div>
@@ -497,3 +502,4 @@ padding: 9px 12px;
         </div>
     </div>
 }
+
