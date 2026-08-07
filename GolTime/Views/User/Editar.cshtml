@@ -1,5 +1,108 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model GolTime.Models.User
+
 @{
+    var roles = ViewBag.Roles as List<GolTime.Models.Rol> ?? new List<GolTime.Models.Rol>();
+    bool esAdminPrincipal = ViewBag.EsAdminPrincipal as bool? ?? false;
+    bool esUsuarioActual = ViewBag.EsUsuarioActual as bool? ?? false;
 }
+
+<div class="modal-overlay open">
+    <div class="modal-box">
+        <div class="modal-head">
+            <div>
+                <h2 class="modal-title">Editar usuario</h2>
+                <p class="modal-subtitle">Actualiza los datos de la cuenta.</p>
+            </div>
+            <a asp-controller="User" asp-action="Index" class="modal-close">x</a>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div style="color:var(--red); margin-bottom:14px;">
+                @TempData["Error"]
+            </div>
+        }
+
+        @if (esUsuarioActual || esAdminPrincipal)
+        {
+            <div style="color:var(--text-muted); margin-bottom:14px;">
+                Esta cuenta esta protegida y no puede desactivarse desde aqui.
+            </div>
+        }
+
+        <form asp-controller="User" asp-action="Editar" method="post">
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="All" style="color:var(--red); margin-bottom:14px;"></div>
+
+            <div class="form-grid">
+                <div class="form-field full">
+                    <label>Nombre<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input name="nombre" value="@Model.Nombre" maxlength="80" required />
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Correo<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input name="correo" value="@Model.Correo" type="email" maxlength="100" required />
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Rol<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <select name="rolId" required>
+                            @foreach (var rol in roles)
+                            {
+                                if (Model.RolId == rol.Id)
+                                {
+                                    <option value="@rol.Id" selected>@rol.Nombre</option>
+                                }
+                                else
+                                {
+                                    <option value="@rol.Id">@rol.Nombre</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Estado</label>
+                    <div class="input-wrap">
+                        <select name="estado">
+                            @if (Model.Estado)
+                            {
+                                <option value="true" selected>Activo</option>
+                                <option value="false">Inactivo</option>
+                            }
+                            else
+                            {
+                                <option value="true">Activo</option>
+                                <option value="false" selected>Inactivo</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Nueva contrasena</label>
+                    <div class="input-wrap">
+                        <input name="clave" type="password" placeholder="Dejar vacio para mantener" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a asp-controller="User" asp-action="Index" class="btn btn-ghost">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
