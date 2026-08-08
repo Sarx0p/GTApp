@@ -98,7 +98,16 @@
 
         @if (Model.TotalPaginas > 1)
         {
+            int ventana = 2;
+            int inicio = Math.Max(1, Model.PaginaActual - ventana);
+            int fin = Math.Min(Model.TotalPaginas, Model.PaginaActual + ventana);
+
             <div class="pagination">
+                @if (Model.PaginaActual > 1)
+                {
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="1" title="Primera">«</a>
+                }
+
                 @if (Model.TienePaginaAnterior)
                 {
                     <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@(Model.PaginaActual - 1)">‹</a>
@@ -108,7 +117,16 @@
                     <span class="page-btn" style="opacity:.4;">‹</span>
                 }
 
-                @for (int p = 1; p <= Model.TotalPaginas; p++)
+                @if (inicio > 1)
+                {
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="1">1</a>
+                    if (inicio > 2)
+                    {
+                        <span class="page-btn" style="border:none;">…</span>
+                    }
+                }
+
+                @for (int p = inicio; p <= fin; p++)
                 {
                     if (p == Model.PaginaActual)
                     {
@@ -120,6 +138,15 @@
                     }
                 }
 
+                @if (fin < Model.TotalPaginas)
+                {
+                    if (fin < Model.TotalPaginas - 1)
+                    {
+                        <span class="page-btn" style="border:none;">…</span>
+                    }
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@Model.TotalPaginas">@Model.TotalPaginas</a>
+                }
+
                 @if (Model.TienePaginaSiguiente)
                 {
                     <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@(Model.PaginaActual + 1)">›</a>
@@ -127,6 +154,11 @@
                 else
                 {
                     <span class="page-btn" style="opacity:.4;">›</span>
+                }
+
+                @if (Model.PaginaActual < Model.TotalPaginas)
+                {
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@Model.TotalPaginas" title="Última">»</a>
                 }
             </div>
         }
