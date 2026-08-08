@@ -16,8 +16,8 @@ namespace GolTime.Controllers
             _context = context;
         }
 
-        
-        public async Task<IActionResult> Index(string? estado, string? pago)
+
+        public async Task<IActionResult> Index(string? estado, string? pago, int pagina = 1)
         {
 
 
@@ -38,19 +38,20 @@ namespace GolTime.Controllers
                 query = query.Where(r => r.EstadoPago == pagoEnum);
             }
 
-            var reservaciones = await query
+            query = query
                 .OrderByDescending(r => r.Fecha)
-                .ThenBy(r => r.HoraInicio)
-                .ToListAsync();
+                .ThenBy(r => r.HoraInicio);
+
+            var resultado = await GolTime.Util.ReservacionPaginacion.CrearAsync(query, pagina, tamanoPagina: 5);
 
             ViewBag.EstadoActual = estado;
             ViewBag.PagoActual = pago;
 
             await CargarListas();
-            return View(reservaciones);
+            return View(resultado);
         }
 
-        
+
         // Búsqueda en vivo contra la base de datos para el buscador de cliente
         [HttpGet]
         public async Task<IActionResult> BuscarClientesAjax(string? term)
@@ -72,13 +73,13 @@ namespace GolTime.Controllers
             return Json(clientes);
         }
 
-      
+
         public IActionResult Crear()
         {
             return View();
         }
 
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(
@@ -100,7 +101,7 @@ namespace GolTime.Controllers
                 }
                 else
                 {
-                    
+
                     var usuarioActual = await _context.Users.OrderBy(u => u.Id).FirstOrDefaultAsync();
                     reservacion.UserId = usuarioActual?.Id ?? 0;
 
@@ -153,7 +154,7 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editar(
@@ -220,7 +221,7 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-       
+
         [HttpPost]
         [ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
@@ -237,7 +238,7 @@ namespace GolTime.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-       
+
         private async Task CargarListas()
         {
             ViewBag.Clientes = await _context.Clientes
@@ -249,7 +250,7 @@ namespace GolTime.Controllers
                 .ToListAsync();
         }
 
-       
+
         private async Task<bool> ExisteConflictoHorario(DateOnly fecha, TimeOnly horaInicio, TimeOnly horaFin, int? idExcluir)
         {
             var query = _context.Reservaciones.Where(r =>

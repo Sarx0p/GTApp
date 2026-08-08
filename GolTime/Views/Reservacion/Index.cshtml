@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GolTime.Models.Reservacion>
+﻿@model GolTime.Util.ReservacionPaginacion
 @using GolTime.Enums
 @{
     ViewData["Title"] = "Reservaciones";
@@ -51,7 +51,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if (!Model.Any())
+                @if (!Model.Items.Any())
                 {
                     <tr>
                         <td colspan="7" style="text-align:center; color:var(--text-muted); padding:26px;">
@@ -59,7 +59,7 @@
                         </td>
                     </tr>
                 }
-                @foreach (var r in Model)
+                @foreach (var r in Model.Items)
                 {
                     var badgeEstado = r.EstadoReserva switch
                     {
@@ -94,6 +94,41 @@
     </div>
 
     <div class="table-footer">
-        <span>Mostrando @Model.Count() reservacion(es)</span>
+        <span>Mostrando @Model.Items.Count de @Model.TotalRegistros reservacion(es)</span>
+
+        @if (Model.TotalPaginas > 1)
+        {
+            <div class="pagination">
+                @if (Model.TienePaginaAnterior)
+                {
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@(Model.PaginaActual - 1)">‹</a>
+                }
+                else
+                {
+                    <span class="page-btn" style="opacity:.4;">‹</span>
+                }
+
+                @for (int p = 1; p <= Model.TotalPaginas; p++)
+                {
+                    if (p == Model.PaginaActual)
+                    {
+                        <span class="page-btn active">@p</span>
+                    }
+                    else
+                    {
+                        <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@p">@p</a>
+                    }
+                }
+
+                @if (Model.TienePaginaSiguiente)
+                {
+                    <a class="page-btn" asp-action="Index" asp-route-estado="@estadoActual" asp-route-pago="@pagoActual" asp-route-pagina="@(Model.PaginaActual + 1)">›</a>
+                }
+                else
+                {
+                    <span class="page-btn" style="opacity:.4;">›</span>
+                }
+            </div>
+        }
     </div>
 </div>
