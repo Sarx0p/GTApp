@@ -1,9 +1,12 @@
 ﻿using GolTime.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GolTime.Controllers
 {
+
+    [Authorize(Roles = "Administrador, Empleado")]
     public class ReservacionController : Controller
     {
         private readonly GoltimeContext _context;
@@ -13,9 +16,11 @@ namespace GolTime.Controllers
             _context = context;
         }
 
-        // GET: /Reservacion?estado=Activa&pago=Pagado
+        
         public async Task<IActionResult> Index(string? estado, string? pago)
         {
+
+
             var query = _context.Reservaciones
                 .Include(r => r.Client)
                 .Include(r => r.User)
@@ -41,15 +46,21 @@ namespace GolTime.Controllers
             ViewBag.EstadoActual = estado;
             ViewBag.PagoActual = pago;
 
+            await CargarListas();
             return View(reservaciones);
         }
 
-        // GET: /Reservacion/BuscarClientesAjax?term=xxx
+        
         // Búsqueda en vivo contra la base de datos para el buscador de cliente
         [HttpGet]
         public async Task<IActionResult> BuscarClientesAjax(string? term)
         {
             term = (term ?? string.Empty).Trim().ToLower();
+
+            if (term.Contains("—"))
+            {
+                term = term.Split('—')[0].Trim();
+            }
 
             var clientes = await _context.Clientes
                 .Where(c => string.IsNullOrEmpty(term) || c.Nombre.ToLower().Contains(term))
@@ -61,13 +72,13 @@ namespace GolTime.Controllers
             return Json(clientes);
         }
 
-        // GET: /Reservacion/Crear
+      
         public IActionResult Crear()
         {
             return View();
         }
 
-        // POST: /Reservacion/Crear
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(
@@ -89,7 +100,7 @@ namespace GolTime.Controllers
                 }
                 else
                 {
-                    // TODO: reemplazar por el usuario de la sesión actual cuando exista login.
+                    
                     var usuarioActual = await _context.Users.OrderBy(u => u.Id).FirstOrDefaultAsync();
                     reservacion.UserId = usuarioActual?.Id ?? 0;
 
@@ -107,8 +118,6 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-        // POST: /Reservacion/CrearClienteAjax
-        // Crea un cliente al vuelo desde el mini-modal "Nuevo cliente" y lo devuelve como JSON
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CrearClienteAjax(string nombre, string numero)
@@ -132,7 +141,6 @@ namespace GolTime.Controllers
             return Json(new { id = cliente.Id, nombre = cliente.Nombre, numero = cliente.Numero });
         }
 
-        // GET: /Reservacion/Editar/5
         public async Task<IActionResult> Editar(int id)
         {
             var reservacion = await _context.Reservaciones.FindAsync(id);
@@ -145,7 +153,7 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-        // POST: /Reservacion/Editar/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editar(
@@ -196,7 +204,6 @@ namespace GolTime.Controllers
             return View(form);
         }
 
-        // GET: /Reservacion/Eliminar/5
         [HttpGet]
         public async Task<IActionResult> Eliminar(int id)
         {
@@ -213,7 +220,7 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-        // POST: /Reservacion/Eliminar/5
+       
         [HttpPost]
         [ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
@@ -230,7 +237,7 @@ namespace GolTime.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Listas para los <select> de Cliente y Usuario en Crear/Editar
+       
         private async Task CargarListas()
         {
             ViewBag.Clientes = await _context.Clientes
@@ -242,8 +249,7 @@ namespace GolTime.Controllers
                 .ToListAsync();
         }
 
-        // Revisa si ya existe otra reserva que se cruce en fecha y horario.
-        // idExcluir se usa en Editar para no comparar la reserva contra sí misma.
+       
         private async Task<bool> ExisteConflictoHorario(DateOnly fecha, TimeOnly horaInicio, TimeOnly horaFin, int? idExcluir)
         {
             var query = _context.Reservaciones.Where(r =>

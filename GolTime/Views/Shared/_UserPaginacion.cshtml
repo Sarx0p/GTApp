@@ -1,0 +1,59 @@
+﻿@model GolTime.Util.UserPaginacion
+
+@if (Model.TotalPaginas > 1)
+{
+    <div class="table-footer">
+        <span>Pagina @Model.PaginaActual de @Model.TotalPaginas</span>
+
+        <div class="pagination">
+            @if (Model.PaginaActual > 1)
+            {
+                <a class="page-btn page-wide"
+                   asp-controller="@(Model.Controlador)"
+                   asp-action="@(Model.Accion)"
+                   asp-route-pg="1"
+                   asp-route-rolId="@(Model.RolId)"
+                   asp-route-estado="@(Model.Estado)"
+                   asp-route-busqueda="@(Model.Busqueda)">Primera</a>
+
+                <a class="page-btn page-wide"
+                   asp-controller="@(Model.Controlador)"
+                   asp-action="@(Model.Accion)"
+                   asp-route-pg="@(Model.PaginaActual - 1)"
+                   asp-route-rolId="@(Model.RolId)"
+                   asp-route-estado="@(Model.Estado)"
+                   asp-route-busqueda="@(Model.Busqueda)">Anterior</a>
+            }
+
+            @for (var pagina = Model.PaginaInicio; pagina <= Model.UltimaPagina; pagina++)
+            {
+                <a class="page-btn @(pagina == Model.PaginaActual ? "active" : "")"
+                   asp-controller="@(Model.Controlador)"
+                   asp-action="@(Model.Accion)"
+                   asp-route-pg="@pagina"
+                   asp-route-rolId="@(Model.RolId)"
+                   asp-route-estado="@(Model.Estado)"
+                   asp-route-busqueda="@(Model.Busqueda)">@pagina</a>
+            }
+
+            @if (Model.PaginaActual < Model.TotalPaginas)
+            {
+                <a class="page-btn page-wide"
+                   asp-controller="@(Model.Controlador)"
+                   asp-action="@(Model.Accion)"
+                   asp-route-pg="@(Model.PaginaActual + 1)"
+                   asp-route-rolId="@(Model.RolId)"
+                   asp-route-estado="@(Model.Estado)"
+                   asp-route-busqueda="@(Model.Busqueda)">Siguiente</a>
+
+                <a class="page-btn page-wide"
+                   asp-controller="@(Model.Controlador)"
+                   asp-action="@(Model.Accion)"
+                   asp-route-pg="@(Model.TotalPaginas)"
+                   asp-route-rolId="@(Model.RolId)"
+                   asp-route-estado="@(Model.Estado)"
+                   asp-route-busqueda="@(Model.Busqueda)">Ultima</a>
+            }
+        </div>
+    </div>
+}
