@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASajMGlwAsUGGlUerD7nRcgAAAAACAAAAAAAQZgAAAAEAACAAAAA7etwZZFgo8sS2J2wILka4UTNadhieRcpcq9yu3tGTKQAAAAAOgAAAAAIAACAAAACegLjC6jAeh7W9ldyy1ACFAf8VRTnIX3qAKe6P90ZbYSAAAAAQL69KZPkScn6iMJQHKkvZESfm7Y7TOsDN/+2DPG2lfEAAAACLM7NgKQc+hxmF5v5K1RWOvgPm0HSa3tK2CMT5QaQkX1Oodj2eteBrH4bG1aTR9eQvSayiSe/4Cieo+RFy2FCZ</EncryptedPassword>
+    <_PublishTargetUrl>ftp://win8071.site4now.net</_PublishTargetUrl>
+    <History>True|2026-08-09T03:35:42.5656282Z||;False|2026-08-08T21:26:07.5412170-06:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/06/2026 19:17:35</publishTime>
+    </File>
+    <File Include="appsettings.example.Development.json">
+      <publishTime>07/26/2026 15:48:28</publishTime>
+    </File>
+    <File Include="appsettings.example.json">
+      <publishTime>08/06/2026 19:17:35</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/08/2026 20:23:40</publishTime>
+    </File>
+    <File Include="GolTime.deps.json">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="GolTime.dll">
+      <publishTime>08/08/2026 21:26:23</publishTime>
+    </File>
+    <File Include="GolTime.exe">
+      <publishTime>08/08/2026 21:26:23</publishTime>
+    </File>
+    <File Include="GolTime.pdb">
+      <publishTime>08/08/2026 21:26:23</publishTime>
+    </File>
+    <File Include="GolTime.runtimeconfig.json">
+      <publishTime>08/08/2026 21:20:14</publishTime>
+    </File>
+    <File Include="GolTime.staticwebassets.endpoints.json">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Black.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-BlackItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Bold.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-BoldItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraBold.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraBoldItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraLight.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ExtraLightItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Italic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Light.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-LightItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Medium.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-MediumItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Regular.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-SemiBold.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-SemiBoldItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-Thin.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/Lato-ThinItalic.ttf">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="LatoFont/OFL.txt">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>06/26/2026 14:25:28</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>06/26/2026 14:25:56</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>06/26/2026 14:26:10</publishTime>
+    </File>
+    <File Include="Npgsql.dll">
+      <publishTime>05/27/2026 05:32:54</publishTime>
+    </File>
+    <File Include="Npgsql.EntityFrameworkCore.PostgreSQL.dll">
+      <publishTime>07/10/2026 02:53:34</publishTime>
+    </File>
+    <File Include="QuestPDF.dll">
+      <publishTime>07/29/2026 01:39:52</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libqpdf.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libQuestPdfSkia.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libqpdf.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libQuestPdfSkia.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libqpdf.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libQuestPdfSkia.so">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libqpdf.dylib">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/osx-arm64/native/libQuestPdfSkia.dylib">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libqpdf.dylib">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libQuestPdfSkia.dylib">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/qpdf.dll">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/QuestPdfSkia.dll">
+      <publishTime>07/29/2026 01:36:14</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/qpdf.dll">
+      <publishTime>07/29/2026 01:36:16</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/QuestPdfSkia.dll">
+      <publishTime>07/29/2026 01:36:16</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/qpdf.dll">
+      <publishTime>07/29/2026 01:36:16</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/QuestPdfSkia.dll">
+      <publishTime>07/29/2026 01:36:16</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/08/2026 21:26:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>08/07/2026 09:15:17</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/GolTime.styles.css">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/GolTime.styles.css.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/GolTime.styles.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/images/logo.png">
+      <publishTime>08/03/2026 17:00:04</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>08/07/2026 11:02:11</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map.br">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map.br">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map.br">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map.br">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map.br">
+      <publishTime>08/08/2026 21:26:26</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js.br">
+      <publishTime>08/08/2026 21:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.js">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.js.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.js.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.map">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.map.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.slim.min.map.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>07/19/2026 15:45:01</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt.br">
+      <publishTime>08/08/2026 21:26:25</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt.gz">
+      <publishTime>08/08/2026 21:20:12</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
