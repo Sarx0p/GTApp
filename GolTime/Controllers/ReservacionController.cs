@@ -205,6 +205,7 @@ namespace GolTime.Controllers
             return View(form);
         }
 
+        
         [HttpGet]
         public async Task<IActionResult> Eliminar(int id)
         {
@@ -221,7 +222,7 @@ namespace GolTime.Controllers
             return View(reservacion);
         }
 
-
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
