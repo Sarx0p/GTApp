@@ -1,0 +1,63 @@
+﻿@model GolTime.Models.User
+
+@{
+    string bloqueo = ViewBag.NoPuedeEliminar as string ?? "";
+}
+
+<div class="modal-overlay open">
+    <div class="modal-box modal-sm">
+        <div class="modal-head">
+            <div>
+                <h2 class="modal-title">Eliminar usuario</h2>
+                <p class="modal-subtitle">Esta accion no se puede deshacer.</p>
+            </div>
+            <a asp-controller="User" asp-action="Index" class="modal-close">x</a>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <div class="detail-list">
+            <div class="detail-row">
+                <span class="detail-key">Nombre</span>
+                <span class="detail-value">@Model.Nombre</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-key">Correo</span>
+                <span class="detail-value">@Model.Correo</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-key">Rol</span>
+                <span class="detail-value">@(Model.Rol?.Nombre ?? "Sin rol")</span>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(bloqueo))
+        {
+            <div style="margin-top:16px; padding:12px; border-radius:8px; color:var(--red); background:rgba(239,68,68,.12);">
+                @bloqueo
+            </div>
+        }
+        else
+        {
+            <div style="margin-top:16px; padding:12px; border-radius:8px; color:#fca5a5; background:rgba(239,68,68,.12);">
+                Se eliminara la cuenta y sus datos asociados de forma permanente.
+            </div>
+        }
+
+        <form asp-controller="User" asp-action="Eliminar" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <div class="modal-footer" style="margin-top:20px;">
+                <a asp-controller="User" asp-action="Index" class="btn btn-ghost">Cancelar</a>
+
+                @if (string.IsNullOrWhiteSpace(bloqueo))
+                {
+                    <button type="submit" class="btn btn-danger">Eliminar usuario</button>
+                }
+            </div>
+        </form>
+    </div>
+</div>

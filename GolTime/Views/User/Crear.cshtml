@@ -1,0 +1,68 @@
+﻿@model GolTime.Models.User
+
+@{
+    var roles = ViewBag.Roles as List<GolTime.Models.Rol> ?? new List<GolTime.Models.Rol>();
+}
+
+<div class="modal-overlay open">
+    <div class="modal-box">
+        <div class="modal-head">
+            <div>
+                <h2 class="modal-title">Nuevo usuario</h2>
+                <p class="modal-subtitle">Crea una cuenta para un empleado o administrador.</p>
+            </div>
+            <a asp-controller="User" asp-action="Index" class="modal-close">x</a>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <form asp-controller="User" asp-action="Crear" method="post">
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All" style="color:var(--red); margin-bottom:14px;"></div>
+
+            <div class="form-grid">
+                <div class="form-field full">
+                    <label>Nombre<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input asp-for="Nombre" maxlength="80" required placeholder="Nombre completo" />
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Correo<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input asp-for="Correo" type="email" maxlength="100" required placeholder="correo@goltime.com" />
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Contrasena<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <input asp-for="Clave" type="password" required placeholder="Contrasena" />
+                    </div>
+                </div>
+
+                <div class="form-field full">
+                    <label>Rol<span class="req">*</span></label>
+                    <div class="input-wrap">
+                        <select asp-for="RolId" required>
+                            <option value="">Selecciona un rol</option>
+                            @foreach (var rol in roles)
+                            {
+                                <option value="@rol.Id">@rol.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <input asp-for="Estado" type="hidden" value="true" />
+
+            <div class="modal-footer">
+                <a asp-controller="User" asp-action="Index" class="btn btn-ghost">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Crear usuario</button>
+            </div>
+        </form>
+    </div>
+</div>
