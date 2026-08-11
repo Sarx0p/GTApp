@@ -5,39 +5,39 @@
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASajMGlwAsUGGlUerD7nRcgAAAAACAAAAAAAQZgAAAAEAACAAAAA7etwZZFgo8sS2J2wILka4UTNadhieRcpcq9yu3tGTKQAAAAAOgAAAAAIAACAAAACegLjC6jAeh7W9ldyy1ACFAf8VRTnIX3qAKe6P90ZbYSAAAAAQL69KZPkScn6iMJQHKkvZESfm7Y7TOsDN/+2DPG2lfEAAAACLM7NgKQc+hxmF5v5K1RWOvgPm0HSa3tK2CMT5QaQkX1Oodj2eteBrH4bG1aTR9eQvSayiSe/4Cieo+RFy2FCZ</EncryptedPassword>
     <_PublishTargetUrl>ftp://win8071.site4now.net</_PublishTargetUrl>
-    <History>True|2026-08-09T03:35:42.5656282Z||;False|2026-08-08T21:26:07.5412170-06:00||;</History>
+    <History>True|2026-08-11T00:01:45.0218203Z||;True|2026-08-10T17:31:13.0144153-06:00||;True|2026-08-08T21:35:42.5656282-06:00||;False|2026-08-08T21:26:07.5412170-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
-      <publishTime>08/06/2026 19:17:35</publishTime>
+      <publishTime>08/10/2026 17:21:53</publishTime>
     </File>
     <File Include="appsettings.example.Development.json">
       <publishTime>07/26/2026 15:48:28</publishTime>
     </File>
     <File Include="appsettings.example.json">
-      <publishTime>08/06/2026 19:17:35</publishTime>
+      <publishTime>08/10/2026 17:21:53</publishTime>
     </File>
     <File Include="appsettings.json">
       <publishTime>08/08/2026 20:23:40</publishTime>
     </File>
     <File Include="GolTime.deps.json">
-      <publishTime>08/08/2026 21:26:24</publishTime>
+      <publishTime>08/10/2026 17:57:01</publishTime>
     </File>
     <File Include="GolTime.dll">
-      <publishTime>08/08/2026 21:26:23</publishTime>
+      <publishTime>08/10/2026 17:56:57</publishTime>
     </File>
     <File Include="GolTime.exe">
-      <publishTime>08/08/2026 21:26:23</publishTime>
+      <publishTime>08/10/2026 17:56:57</publishTime>
     </File>
     <File Include="GolTime.pdb">
-      <publishTime>08/08/2026 21:26:23</publishTime>
+      <publishTime>08/10/2026 17:56:57</publishTime>
     </File>
     <File Include="GolTime.runtimeconfig.json">
-      <publishTime>08/08/2026 21:20:14</publishTime>
+      <publishTime>08/10/2026 17:22:10</publishTime>
     </File>
     <File Include="GolTime.staticwebassets.endpoints.json">
-      <publishTime>08/08/2026 21:26:26</publishTime>
+      <publishTime>08/10/2026 17:22:15</publishTime>
     </File>
     <File Include="LatoFont/Lato-Black.ttf">
       <publishTime>07/29/2026 01:36:14</publishTime>
@@ -109,7 +109,7 @@
       <publishTime>05/27/2026 05:32:54</publishTime>
     </File>
     <File Include="Npgsql.EntityFrameworkCore.PostgreSQL.dll">
-      <publishTime>07/10/2026 02:53:34</publishTime>
+      <publishTime>10/07/2026 02:53:34</publishTime>
     </File>
     <File Include="QuestPDF.dll">
       <publishTime>07/29/2026 01:39:52</publishTime>
@@ -163,16 +163,16 @@
       <publishTime>07/29/2026 01:36:16</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>08/08/2026 21:26:27</publishTime>
+      <publishTime>08/10/2026 17:57:02</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
-      <publishTime>08/07/2026 09:15:17</publishTime>
+      <publishTime>08/10/2026 17:21:53</publishTime>
     </File>
     <File Include="wwwroot/css/site.css.br">
-      <publishTime>08/08/2026 21:26:24</publishTime>
+      <publishTime>08/10/2026 17:22:14</publishTime>
     </File>
     <File Include="wwwroot/css/site.css.gz">
-      <publishTime>08/08/2026 21:20:12</publishTime>
+      <publishTime>08/10/2026 17:22:09</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>07/19/2026 15:45:01</publishTime>
@@ -193,16 +193,16 @@
       <publishTime>08/08/2026 21:20:12</publishTime>
     </File>
     <File Include="wwwroot/images/logo.png">
-      <publishTime>08/03/2026 17:00:04</publishTime>
+      <publishTime>08/10/2026 17:21:53</publishTime>
     </File>
     <File Include="wwwroot/js/site.js">
-      <publishTime>08/07/2026 11:02:11</publishTime>
+      <publishTime>08/10/2026 17:21:53</publishTime>
     </File>
     <File Include="wwwroot/js/site.js.br">
-      <publishTime>08/08/2026 21:26:24</publishTime>
+      <publishTime>08/10/2026 17:22:14</publishTime>
     </File>
     <File Include="wwwroot/js/site.js.gz">
-      <publishTime>08/08/2026 21:20:12</publishTime>
+      <publishTime>08/10/2026 17:22:09</publishTime>
     </File>
     <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
       <publishTime>07/19/2026 15:45:01</publishTime>

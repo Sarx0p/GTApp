@@ -205,7 +205,7 @@ namespace GolTime.Controllers
             return View(form);
         }
 
-        
+        [Authorize(Roles = "Empleado")]
         [HttpGet]
         public async Task<IActionResult> Eliminar(int id)
         {
